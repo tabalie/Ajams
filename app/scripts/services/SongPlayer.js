@@ -1,7 +1,15 @@
 (function() {
     function SongPlayer() {
+
+        /**
+        * @desc SongPlayer object
+        * @type {Object}
+        */
         var SongPlayer = {};
 
+        /**
+        /* @desc currently playing song object
+        */
         var currentSong = null;
 
         /**
@@ -30,27 +38,38 @@
         };
 
         /**
-        * @function play
-        * @desc Play current or new song
+        * @function playSong
+        * @desc Play a song
         * @param {Object} song
+        */
+        var playSong = function(song) {
+            // play current Buzz object
+            currentBuzzObject.play();
+            // set playing property to true
+            song.playing = true;
+        };
+
+        /**
+        /* @function play
+        /* @desc Play song (current song or new song)
+        /* @param {object} song
         */
         SongPlayer.play = function(song) {
             if (currentSong !== song) {
                 setSong(song);
-                currentBuzzObject.play();
-                song.playing = true;
-
+                playSong(song);
             } else if (currentSong === song) {
                 if (currentBuzzObject.isPaused()) {
-                    currentBuzzObject.play();
+                    playSong(song);
                 }
             }
+
         };
 
         /**
-        * @function pause
-        * @desc Pause current song
-        * @param {Object} song
+        /* @function pause
+        /* @desc Pause current song
+        /* @param {object} song
         */
         SongPlayer.pause = function(song) {
             currentBuzzObject.pause();
@@ -58,7 +77,7 @@
         };
 
         return SongPlayer;
-    };
+    }
 
     angular
         .module('blocJams')
