@@ -4,7 +4,7 @@
             <img src="{{ album.albumData.albumArtUrl }}" class="album-cover-art">
         </div>
         <div class="album-view-details column half">
-            <h2 class="album-view-title">{{ album.albumData.name }}</h2>
+            <h2 class="album-view-title">{{ album.albumData.title }}</h2>
             <h3 class="album-view-artist">{{ album.albumData.artist }}</h3>
             <h5 class="album-view-release-info">{{ album.albumData.year }}</h5>
         </div>
@@ -12,8 +12,8 @@
     <table class="album-view-song-list">
         <tr class="album-view-song-item" ng-repeat="song in album.albumData.songs" ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
             <td class="song-item-number">{{ $index + 1 }}</td>
-            <td class="song-item-title">{{ song.name }}</td>
-            <td class="song-item-duration">{{ song.length }}</td>
+            <td class="song-item-title">{{ song.title }}</td>
+            <td class="song-item-duration">{{ song.duration }}</td>
         </tr>
     </table>
 </main>
