@@ -2,35 +2,16 @@
     function timecode() {
 
         return function(seconds) {
-            var mySound = new buzz.sound("/sounds/mysound.ogg"),
-            timer = buzz.toTimer(mySound.getDuration());
+            var seconds = seconds;
 
-            document.getElementById("duration").innerHTML = timer;
+            if (seconds == "NaN") {
+                return "--:--"
+            } else {
+                var output = buzz.toTimer(seconds);
+            }
 
             return output;
         }
-        // return function(seconds) {
-        //     var seconds = Number.parseFloat(seconds);
-        //
-        //     // checks for NaN condition
-        //     if (Number.isNaN(seconds) ) {
-        //         return '-:--';
-        //     }
-        //
-        //     var wholeSeconds = Math.floor(seconds);
-        //     var minutes = Math.floor(wholeSeconds / 60);
-        //     var remainingSeconds = wholeSeconds % 60;
-        //
-        //     var output = minutes + ':';
-        //
-        //     if (remainingSeconds < 10) {
-        //         output += '0';
-        //     }
-        //
-        //     output += remainingSeconds;
-        //
-        //     return output;
-        // };
 
     }
 
