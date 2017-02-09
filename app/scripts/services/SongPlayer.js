@@ -106,9 +106,23 @@
         */
         SongPlayer.volume = 80;
 
+
     //
     // PUBLIC FUNCTIONS
     //
+
+        /**
+        * @function togMute
+        * @desc Toggle mute on and off
+        * @param {object} song
+        */
+        SongPlayer.togMute = function(song) {
+            song = song || SongPlayer.currentSong;
+            if(currentBuzzObject){
+                currentBuzzObject.toggleMute();
+                // console.log("Mute is toggled")
+            }
+        };
 
         /**
         * @function play
