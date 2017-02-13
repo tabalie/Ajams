@@ -40,8 +40,7 @@
 
             currentBuzzObject = new buzz.sound(song.audioUrl, {
                 formats: ['mp3'],
-                preload: true,
-                autoplay: true
+                preload: true
             });
 
             currentBuzzObject.bind('timeupdate', function() {
@@ -51,6 +50,9 @@
             });
 
             SongPlayer.currentSong = song;
+
+            // function that identifies index of current song, and when
+            // current song is ended, plays next song (AUTOPLAY)
         };
 
         /**
