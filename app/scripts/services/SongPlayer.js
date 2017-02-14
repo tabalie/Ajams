@@ -49,10 +49,20 @@
                 });
             });
 
+            //E.C. - add autoplay feature
+
+            // to find the event of the song ended, can use 'bind' and 'ended'
+            // when the current song is ended, i need to tell it to play the next song...
+            // use 'timeupdate' as an example...
+            currentBuzzObject.bind('ended', function() {
+                // start playing next song
+                $rootScope.$apply(function() {
+                    SongPlayer.next();
+                });
+            });
+
             SongPlayer.currentSong = song;
 
-            // function that identifies index of current song, and when
-            // current song is ended, plays next song (AUTOPLAY)
         };
 
         /**
